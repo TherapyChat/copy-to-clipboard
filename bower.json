@@ -1,0 +1,26 @@
+{
+  "name": "copy-to-clipboard",
+  "authors": [
+    "Therapychat <contacto@therapychat.com> (http://therapychat.com)",
+    "Alberto Fernandez <albertofdzm@gmail.com> (http://onlythepixel.com)"
+  ],
+  "description": "Web Component to use clipboard.js",
+  "main": "copy-to-clipboard.html",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "polymer",
+    "clipboard",
+    "copy",
+    "clipboardjs"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/TherapyChat/copy-to-clipboard#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
