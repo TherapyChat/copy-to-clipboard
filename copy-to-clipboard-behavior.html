@@ -1,0 +1,59 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="./copy-to-clipboard-script.html">
+
+<script>
+  /* global ClipboardJS */
+  /** @polymerBehavior Polymer.CopyToClipboardBehavior */
+  Polymer.CopyToClipboardBehavior = {
+
+    properties: {
+      clipboard: Object,
+      clipboardAction: {
+        type: String,
+        value: 'copy'
+      },
+      clipboardButtonSelector: {
+        type: String,
+        value: '.clipboard-button'
+      },
+      clipboardSupported: {
+        type: Boolean,
+        value: false
+      },
+      clipboardTargetSelector: String
+    },
+
+    attached: function () {
+      this.clipboardSupported = ClipboardJS.isSupported()
+
+      if (!this.clipboardSupported) return
+
+      this.setupClipboard(this.clipboardButtonSelector, options)
+    },
+
+    detached: function () {
+      this.clipboardDestroy()
+    },
+
+    clipboardDestroy: function () {
+      if (this.clipboard) this.clipboard.destroy()
+      this.clipboard = undefined
+    },
+
+    clipboardSetup: function (buttonSelector, options) {
+      if (!buttonSelector) throw new Error('You need to provide a clipboardButtonSelector')
+
+      clipboardButton = Polymer.dom(this.root).querySelector(buttonSelector)
+
+      if (clipboardButton) {
+        clipboardButton.setAttribute('data-clipboard-target', this.clipboardTargetSelector)
+
+        if (this.clipboardAction !== this.properties.clipboardAction.value) {
+          clipboardButton.setAttribute('data-clipboard-action', this.clipboardAction)
+        }
+
+        this.clipboard = options ? new ClipboardJS(buttonSelector) : new ClipboardJS(buttonSelector, options)
+      }
+    }
+  }
+</script>
