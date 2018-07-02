@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <title>paper-button demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../paper-input.html">
+  <link rel="import" href="../paper-button.html">
+</head>
+<body unresolved>
+  <custom-element-demo>
+    <template>
+      <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+      <link rel="import" href="../paper-input/paper-input.html">
+      <link rel="import" href="../paper-button/paper-button.html">
+      <link rel="import" href="copy-to-clipboard.html">
+      <dom-module id="app-element">
+        <template>
+            <copy-to-clipboard
+            id="copyToClipboard"
+            value="{{value}}"
+            clipboard-copied-value="{{copiedValue}}"
+          ></copy-to-clipboard>
+          <paper-input value="[[value]]"></paper-input>
+          <paper-input value="{{copiedValue}}" read-only>
+          <paper-button on-click="onClickCopy">COPY</paper-button>
+        </template>
+        <script>
+          Polymer({
+            is: 'app-element',
+
+            properties: {
+              value: String,
+              copiedValue: String
+            },
+
+            onClickCopy: function () {
+              this.$.copyToClipboard.copy()
+            }
+          })
+        </script>
+      </dom-module>
+
+      <app-element></app-element>
+    </template>
+  </custom-element-demo>
+</body>
+</html>
