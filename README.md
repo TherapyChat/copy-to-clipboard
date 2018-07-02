@@ -1,3 +1,7 @@
+[![Build status](https://travis-ci.org/TherapyChat/copy-to-clipboard.svg?branch=master)](https://travis-ci.org/TherapyChat/copy-to-clipboard)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/therapychat/copy-to-clipboard)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+
 # \<copy-to-clipboard\>
 
 Web Component to use [clipboard.js](https://clipboardjs.com/)
