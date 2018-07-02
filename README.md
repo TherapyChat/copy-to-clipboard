@@ -2,6 +2,48 @@
 
 Web Component to use [clipboard.js](https://clipboardjs.com/)
 
+Example of use:
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../paper-input/paper-input.html">
+    <link rel="import" href="../paper-button/paper-button.html">
+    <link rel="import" href="copy-to-clipboard.html">
+    <dom-module id="app-element">
+      <template>
+        <next-code-block></next-code-block>
+      </template>
+      <script>
+        Polymer({
+          is: 'app-element',
+
+          properties: {
+            value: String
+          },
+
+          onClickCopy: function () {
+            this.$.copyToClipboard.copy()
+          }
+        })
+      </script>
+    </dom-module>
+
+    <app-element></app-element>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<copy-to-clipboard
+  id="copyToClipboard"
+  value="[[value]]"
+></copy-to-clipboard>
+<paper-input value="{{value}}"></paper-input>
+<paper-button on-click="onClickCopy">COPY</paper-button>
+```
+
 ## Changelog
 
 See [CHANGELOG](./CHANGELOG.md) file.
