@@ -16,6 +16,11 @@
         type: String,
         value: '.clipboard-button'
       },
+      clipboardCopiedValue: {
+        type: String,
+        notify: true,
+        readOnly:true
+      },
       clipboardSupported: {
         type: Boolean,
         value: false
@@ -46,14 +51,33 @@
       clipboardButton = Polymer.dom(this.root).querySelector(buttonSelector)
 
       if (clipboardButton) {
-        clipboardButton.setAttribute('data-clipboard-target', this.clipboardTargetSelector)
+        if (this.clipboardTargetSelector) {
+          clipboardButton.setAttribute('data-clipboard-target', this.clipboardTargetSelector)
+        }
 
         if (this.clipboardAction !== this.properties.clipboardAction.value) {
           clipboardButton.setAttribute('data-clipboard-action', this.clipboardAction)
         }
 
         this.clipboard = options ? new ClipboardJS(buttonSelector) : new ClipboardJS(buttonSelector, options)
+
+        this.clipboard.on('success', this._onCopyToClipboardSuccess)
+        this.clipboard.on('error', this._onCopyToClipboardError)
       }
+    },
+
+    _onCopyToClipboardError: function (ev) {
+      this.dispatchEvent(new CustomEvent('copy-to-clipboard-error', {
+        detail: ev
+      }))
+    },
+
+    _onCopyToClipboardSuccess: function (ev) {
+      this.setClipboardCopiedValue = ev.text
+
+      this.dispatchEvent(new CustomEvent('copy-to-clipboard-success', {
+        detail: ev
+      }))
     }
   }
 </script>
