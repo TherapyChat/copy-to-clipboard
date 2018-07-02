@@ -18,8 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [UNRELEASED]
 ### Added
-- Add package npm scripts
 - Add index file for catalog
+- Add package npm scripts
 
 
 

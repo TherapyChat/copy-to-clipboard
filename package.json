@@ -4,7 +4,14 @@
   "description": "Web Component to use clipboard.js",
   "main": "copy-to-clipboard.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "polymer build",
+    "lint": "npm run lint:js && npm run lint:polymer",
+    "lint:js": "eslint --ext js,html --ignore-path .gitignore .",
+    "lint:polymer": "polymer lint",
+    "start": "polymer serve",
+    "test": "polymer test",
+    "preversion": "npm run lint && npm test",
+    "version": "changelog-version && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
