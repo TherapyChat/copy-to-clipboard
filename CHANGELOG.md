@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 
-## [UNRELEASED]
+## v1.0.4 - 2018-07-02
 ### Changed
 - Now travis do the npm deploys
 ### Fixed
