@@ -17,12 +17,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 ## [UNRELEASED]
+### Added
+- Add package npm scripts
+- Add index file for catalog
+
+
+
+
+## v1.0.1 2018-07-02
 ### Changed
 - Update dev dependencies
 
 
 
 
-## v1.0.0
+## v1.0.0 2018-07-02
 ### Added
 - Add initial project files
