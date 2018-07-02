@@ -19,7 +19,7 @@
       clipboardCopiedValue: {
         type: String,
         notify: true,
-        readOnly:true
+        readOnly: true
       },
       clipboardSupported: {
         type: Boolean,
@@ -33,7 +33,7 @@
 
       if (!this.clipboardSupported) return
 
-      this.setupClipboard(this.clipboardButtonSelector, options)
+      this.setupClipboard(this.clipboardButtonSelector)
     },
 
     detached: function () {
@@ -48,7 +48,7 @@
     clipboardSetup: function (buttonSelector, options) {
       if (!buttonSelector) throw new Error('You need to provide a clipboardButtonSelector')
 
-      clipboardButton = Polymer.dom(this.root).querySelector(buttonSelector)
+      var clipboardButton = Polymer.dom(this.root).querySelector(buttonSelector)
 
       if (clipboardButton) {
         if (this.clipboardTargetSelector) {
