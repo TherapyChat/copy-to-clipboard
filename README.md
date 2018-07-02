@@ -20,7 +20,8 @@ Example of use:
           is: 'app-element',
 
           properties: {
-            value: String
+            value: String,
+            copiedValue: String
           },
 
           onClickCopy: function () {
@@ -38,9 +39,11 @@ Example of use:
 ```html
 <copy-to-clipboard
   id="copyToClipboard"
-  value="[[value]]"
+  value="{{value}}"
+  clipboard-copied-value="{{copiedValue}}"
 ></copy-to-clipboard>
-<paper-input value="{{value}}"></paper-input>
+<paper-input value="[[value]]"></paper-input>
+<paper-input value="{{copiedValue}}" read-only>
 <paper-button on-click="onClickCopy">COPY</paper-button>
 ```
 
