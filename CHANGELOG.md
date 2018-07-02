@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 
-## [UNRELEASED]
+## v1.0.2 - 2018-07-02
 ### Added
 - Add index file for catalog
 - Add package npm scripts
