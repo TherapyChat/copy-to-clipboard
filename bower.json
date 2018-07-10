@@ -5,7 +5,11 @@
     "Alberto Fernandez <albertofdzm@gmail.com> (http://onlythepixel.com)"
   ],
   "description": "Web Component to use clipboard.js",
-  "main": "copy-to-clipboard.html",
+  "main": [
+    "copy-to-clipboard.html",
+    "copy-to-clipboard-behavior.html",
+    "copy-to-clipboard-script.html"
+  ],
   "keywords": [
     "web-components",
     "web-component",

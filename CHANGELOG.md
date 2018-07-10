@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 -->
 
 
+## [UNRELEASED]
+### Changed
+- Try to make README example work and update bower info
+
+
 
 
 ## v1.0.7 - 2018-07-10

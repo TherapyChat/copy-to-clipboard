@@ -16,23 +16,8 @@ Example of use:
     <link rel="import" href="../paper-button/paper-button.html">
     <link rel="import" href="copy-to-clipboard.html">
 
-    <dom-module id="app-element">
-      <template>
-        <next-code-block></next-code-block>
-      </template>
-      <script>
-        Polymer({
-          is: 'app-element',
+    <next-code-block></next-code-block>
 
-          properties: {
-            value: String,
-            copiedValue: String
-          }
-        })
-      </script>
-    </dom-module>
-
-    <app-element></app-element>
   </template>
 </custom-element-demo>
 ```
