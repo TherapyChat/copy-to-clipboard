@@ -1,6 +1,6 @@
 {
   "name": "@therapychat/copy-to-clipboard",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Web Component to use clipboard.js",
   "main": "copy-to-clipboard.html",
   "scripts": {
