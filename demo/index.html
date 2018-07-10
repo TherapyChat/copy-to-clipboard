@@ -9,47 +9,48 @@
   <title>paper-button demo</title>
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../polymer/polymer.html">
   <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../paper-input.html">
-  <link rel="import" href="../paper-button.html">
+  <link rel="import" href="../../paper-input/paper-input.html">
+  <link rel="import" href="../../paper-button/paper-button.html">
+  <link rel="import" href="../../paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="../../paper-item/paper-item.html">
+  <link rel="import" href="../../paper-listbox/paper-listbox.html">
+  <link rel="import" href="../copy-to-clipboard.html">
 </head>
 <body unresolved>
-  <custom-element-demo>
+  <dom-module id="app-element">
     <template>
-      <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-      <link rel="import" href="../paper-input/paper-input.html">
-      <link rel="import" href="../paper-button/paper-button.html">
-      <link rel="import" href="copy-to-clipboard.html">
-      <dom-module id="app-element">
-        <template>
-            <copy-to-clipboard
-            id="copyToClipboard"
-            value="{{value}}"
-            clipboard-copied-value="{{copiedValue}}"
-          ></copy-to-clipboard>
-          <paper-input value="[[value]]"></paper-input>
-          <paper-input value="{{copiedValue}}" read-only>
-          <paper-button on-click="onClickCopy">COPY</paper-button>
-        </template>
-        <script>
-          Polymer({
-            is: 'app-element',
-
-            properties: {
-              value: String,
-              copiedValue: String
-            },
-
-            onClickCopy: function () {
-              this.$.copyToClipboard.copy()
-            }
-          })
-        </script>
-      </dom-module>
-
-      <app-element></app-element>
+      <copy-to-clipboard
+        id="copyToClipboard"
+        clipboard-value-to-copy="[[value]]"
+        clipboard-value-copied="{{copiedValue}}"
+        clipboard-trigger-id="copyButton"
+      ></copy-to-clipboard>
+      <paper-input
+        label="Value to Copy"
+        value="{{value}}"
+      ></paper-input>
+      <paper-input
+        label="Copied Value"
+        value="[[copiedValue]]"
+        disabled
+      ></paper-input>
+      <paper-button id="copyButton">COPY</paper-button>
     </template>
-  </custom-element-demo>
+    <script>
+      Polymer({
+        is: 'app-element',
+
+        properties: {
+          value: String,
+          copiedValue: String
+        }
+      })
+    </script>
+  </dom-module>
+
+  <app-element></app-element>
 </body>
 </html>

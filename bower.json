@@ -33,6 +33,9 @@
     "iron-test-helpers": "PolymerElements/iron-test-helpers#1 - 2",
     "paper-button": "PolymerElements/paper-button#1 - 2",
     "paper-input": "PolymerElements/paper-input#1 - 2",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#1 - 2",
+    "paper-listbox": "PolymerElements/paper-listbox#1 - 2",
+    "paper-item": "PolymerElements/paper-item#1 - 2",
     "test-fixture": "PolymerElements/test-fixture#^3.0.0-rc.1",
     "web-component-tester": "^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
@@ -50,6 +53,9 @@
         "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0",
         "paper-input": "PolymerElements/paper-input#^1.0.0",
         "paper-button": "PolymerElements/paper-button#^1.0.0",
+        "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.0.0",
+        "paper-listbox": "PolymerElements/paper-listbox#^1.0.0",
+        "paper-item": "PolymerElements/paper-item#^1.0.0",
         "test-fixture": "PolymerElements/test-fixture#^1.0.0",
         "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
         "web-component-tester": "Polymer/web-component-tester#^4.0.0"

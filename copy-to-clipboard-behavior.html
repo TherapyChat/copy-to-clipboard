@@ -12,32 +12,29 @@
         type: String,
         value: 'copy'
       },
-      clipboardButtonSelector: {
-        type: String,
-        value: '.clipboard-button'
-      },
-      clipboardCopiedValue: {
-        type: String,
-        notify: true,
-        readOnly: true
-      },
       clipboardSupported: {
         type: Boolean,
         value: false
       },
-      clipboardTargetSelector: String
+      clipboardTrigger: Object,
+      clipboardValueCopied: {
+        type: String,
+        notify: true,
+        readOnly: true
+      },
+      clipboardValueToCopy: String
     },
 
-    attached: function () {
+    ready: function () {
       this.clipboardSupported = ClipboardJS.isSupported()
-
-      if (!this.clipboardSupported) return
-
-      this.setupClipboard(this.clipboardButtonSelector)
     },
 
     detached: function () {
       this.clipboardDestroy()
+    },
+
+    clipboardCopy: function () {
+      if (this.clipboard) this.trigger.click()
     },
 
     clipboardDestroy: function () {
@@ -45,25 +42,18 @@
       this.clipboard = undefined
     },
 
-    clipboardSetup: function (buttonSelector, options) {
-      if (!buttonSelector) throw new Error('You need to provide a clipboardButtonSelector')
-
-      var clipboardButton = Polymer.dom(this.root).querySelector(buttonSelector)
-
-      if (clipboardButton) {
-        if (this.clipboardTargetSelector) {
-          clipboardButton.setAttribute('data-clipboard-target', this.clipboardTargetSelector)
-        }
-
-        if (this.clipboardAction !== this.properties.clipboardAction.value) {
-          clipboardButton.setAttribute('data-clipboard-action', this.clipboardAction)
-        }
-
-        this.clipboard = options ? new ClipboardJS(buttonSelector) : new ClipboardJS(buttonSelector, options)
-
-        this.clipboard.on('success', this._onCopyToClipboardSuccess)
-        this.clipboard.on('error', this._onCopyToClipboardError)
+    clipboardSetup: function (trigger, options) {
+      this.trigger = trigger || this
+      options = options || {
+        text: trigger => this.clipboardValueToCopy,
+        action: trigger => this.clipboardAction
       }
+
+      if (this.clipboard) this.clipboardDestroy()
+
+      this.clipboard = new ClipboardJS(trigger, options)
+      this.clipboard.on('success', this._onCopyToClipboardSuccess.bind(this))
+      this.clipboard.on('error', this._onCopyToClipboardError.bind(this))
     },
 
     _onCopyToClipboardError: function (ev) {
@@ -73,7 +63,7 @@
     },
 
     _onCopyToClipboardSuccess: function (ev) {
-      this.setClipboardCopiedValue = ev.text
+      this._setClipboardValueCopied(ev.text)
 
       this.dispatchEvent(new CustomEvent('copy-to-clipboard-success', {
         detail: ev

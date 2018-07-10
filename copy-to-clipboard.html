@@ -8,17 +8,6 @@ Web Component to use clipboard.js
 -->
 
 <dom-module id="copy-to-clipboard">
-  <template>
-    <style>
-      :host {
-        display: inline-block;
-      }
-    </style>
-
-    <button id="copyButton" on-click="_onClickCopy">
-      <slot></slot>
-    </button>
-  </template>
   <script>
     Polymer({
       is: 'copy-to-clipboard',
@@ -28,19 +17,16 @@ Web Component to use clipboard.js
       ],
 
       properties: {
-        value: String
+        clipboardTriggerId: String
       },
 
       attached: function () {
-        this.clipboardSetup(this, {
-          text: () => {
-            return this.value
-          }
-        })
-      },
+        var trigger
+        if (this.clipboardTriggerId) {
+          trigger = this.parentNode.getElementById(this.clipboardTriggerId)
 
-      copy: function () {
-        this.dispatchEvent(new CustomEvent('click'))
+          this.clipboardSetup(trigger)
+        }
       }
     })
   </script>

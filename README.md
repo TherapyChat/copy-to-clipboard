@@ -15,6 +15,7 @@ Example of use:
     <link rel="import" href="../paper-input/paper-input.html">
     <link rel="import" href="../paper-button/paper-button.html">
     <link rel="import" href="copy-to-clipboard.html">
+
     <dom-module id="app-element">
       <template>
         <next-code-block></next-code-block>
@@ -26,10 +27,6 @@ Example of use:
           properties: {
             value: String,
             copiedValue: String
-          },
-
-          onClickCopy: function () {
-            this.$.copyToClipboard.copy()
           }
         })
       </script>
@@ -43,12 +40,20 @@ Example of use:
 ```html
 <copy-to-clipboard
   id="copyToClipboard"
-  value="{{value}}"
-  clipboard-copied-value="{{copiedValue}}"
+  clipboard-value-to-copy="[[value]]"
+  clipboard-value-copied="{{copiedValue}}"
+  clipboard-trigger-id="copyButton"
 ></copy-to-clipboard>
-<paper-input value="[[value]]"></paper-input>
-<paper-input value="{{copiedValue}}" read-only>
-<paper-button on-click="onClickCopy">COPY</paper-button>
+<paper-input
+  label="Value to Copy"
+  value="{{value}}"
+></paper-input>
+<paper-input
+  label="Copied Value"
+  value="[[copiedValue]]"
+  disabled
+></paper-input>
+<paper-button id="copyButton">COPY</paper-button>
 ```
 
 ## Changelog
