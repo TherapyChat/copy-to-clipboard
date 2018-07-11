@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 
-## [UNRELEASED]
+## v1.0.9 - 2018-07-11
 ### Changed
 - Change clipboardSupported property to be readOnly
 ### Fixed
