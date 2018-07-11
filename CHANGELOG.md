@@ -15,6 +15,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 -->
 
 
+
+
+## [UNRELEASED]
+### Changed
+- Change clipboardSupported property to be readOnly
+### Fixed
+- Fix an error during copy-to-clipboard component attachment
+
+
+
+
 ## v1.0.8 - 2018-07-10
 ### Changed
 - Try to make README example work and update bower info

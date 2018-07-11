@@ -23,11 +23,10 @@ When `clipboard-trigger-id`the element will look for that element on its attach 
       },
 
       attached: function () {
-        var trigger
         if (this.clipboardTriggerId) {
-          trigger = this.parentNode.getElementById(this.clipboardTriggerId)
+          var trigger = this.parentNode.querySelector('#' + this.clipboardTriggerId)
 
-          this.clipboardSetup(trigger)
+          if (trigger) this.clipboardSetup(trigger)
         }
       }
     })
